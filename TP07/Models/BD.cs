@@ -58,22 +58,32 @@ Si categoria = -1, trae las preguntas de todas las categorías.
 */
 public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria){
         List<Preguntas> lista = new List<Preguntas>();
-        if(dificultad!=-1 && categoria!=-1 ){
-        string sql = "SELECT * FROM Preguntas WHERE IdDificultad=dificultad AND IdCategoria=categoria";
+         string sql = "SELECT * FROM Preguntas";
+         string conector = "WHERE";
+        if(dificultad>0){
+         sql = sql + conector + "IdDificultad=dificultad";
+         conector = "AND";
         }
-        if(dificultad==-1 && categoria!=-1){
-        string sql = "SELECT * FROM Preguntas WHERE IdCategoria=categoria";
-        }
-        if(categoria==-1 && dificultad!=-1){
-        string sql = "SELECT * FROM Preguntas WHERE IdDificultad=dificultad";
-        }
-        if(categoria==-1 && dificultad==-1){
-        string sql = "SELECT * FROM Preguntas";
+        if(categoria>0){
+        sql = sql + conector + "IdCategoria= categoria";
         }
         using(SqlConnection db = new SqlConnection(_connectionString)){
             lista = db.Query<Equipo>(sql).ToList();
         }
         return lista;
     }
+/*ObtenerRespuestas(List<Pregunta> preguntas): Recibe la lista de preguntas
+que se va a usar en el juego, y devuelve una lista con todas las respuestas para
+dichas preguntas.
+Ayuda 1 : Para conseguir las respuestas, hay que ir recorriendo la lista de
+preguntas!!
+Ayuda 2 : El método AddRange de cualquier lista, permite agregar varios objetos
+a una lista en una sola operación. Podría servirte para agregar todas las respuestas
+que vienen de cada pregunta a la lista general de respuestas…
+(Crear además todos los atributos y métodos privados que se requieran vistos en clase,
+para poder conectar el proyecto con la base de datos*/
+public static List<Respuestas> ObtenerRespuestas(List<Pregunta> preguntas){
+        List<Preguntas> lista = new List<Preguntas>();
+       
 }
 
