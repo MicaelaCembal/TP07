@@ -7,7 +7,7 @@ public class Respuesta
     private int _idRespuesta;
     private int _idPregunta;
     private int _opcion;
-    private string contenido;
+    private string _contenido;
     private string _correcta;
     private string _foto;
    
@@ -15,9 +15,9 @@ public class Respuesta
         {
             _idRespuesta=idRespuesta;
            _idPregunta= idPregunta;
-           _idCategoria=idCategoria;
-           _idDificultad=idDificultad;
-           _enunciado=enunciado;
+           _opcion=opcion;
+           _contenido=contenido;
+           _correcta=correcta;
            _foto=foto;
 
         }
@@ -32,29 +32,48 @@ public class Respuesta
         }
 
     }
-    public int IdCategoria
+    public int IdRespuesta
     {
         get
         {
-            return _idCategoria;
+            return _idRespuesta;
         }
         set{
-            _idCategoria = value;
+            _idRespuesta = value;
         }
 
     }
-
-    public string Nombre
+    public int Opcion
     {
         get
         {
-            return _nombre;
+            return _opcion;
         }
         set{
-            _nombre = value;
+            _opcion = value;
+        }
+
+    }
+    public string Contenido
+    {
+        get
+        {
+            return _contenido;
+        }
+        set{
+            _contenido = value;
         }
     }
-
+  public string Correcta
+    {
+        get
+        {
+            return _correcta;
+        }
+        set{
+            _correcta = value;
+        }
+    }
      public string Foto
     {
         get
