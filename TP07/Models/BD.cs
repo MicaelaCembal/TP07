@@ -37,7 +37,6 @@ namespace TP07.Models;
             lista = db.Query<Categoria>(sql).ToList();
         }
         return lista;
-
 }
 //b. ObtenerDificultades(): Devuelve una lista con todas las dificultades
     public static List<Dificultad> ObtenerDificultades(){
@@ -47,11 +46,34 @@ namespace TP07.Models;
             lista = db.Query<Dificultad>(sql).ToList();
         }
         return lista;
+}
+/*
+ObtenerPreguntas(int dificultad, int categoria): Recibe un id de dificultad y
+un id de categoría. Devuelve una lista con las preguntas que se van a utilizar en el
+juego.
+Aclaración:
+Si dificultad = -1, trae las preguntas de todas las dificultades.
+Si categoria = -1, trae las preguntas de todas las categorías.
 
-
+*/
+public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria){
+        List<Preguntas> lista = new List<Preguntas>();
+        if(dificultad!=-1 && categoria!=-1 ){
+        string sql = "SELECT * FROM Preguntas WHERE IdDificultad=dificultad AND IdCategoria=categoria";
+        }
+        if(dificultad==-1 && categoria!=-1){
+        string sql = "SELECT * FROM Preguntas WHERE IdCategoria=categoria";
+        }
+        if(categoria==-1 && dificultad!=-1){
+        string sql = "SELECT * FROM Preguntas WHERE IdDificultad=dificultad";
+        }
+        if(categoria==-1 && dificultad==-1){
+        string sql = "SELECT * FROM Preguntas";
+        }
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            lista = db.Query<Equipo>(sql).ToList();
+        }
+        return lista;
+    }
 }
 
-
-
-
-    }
