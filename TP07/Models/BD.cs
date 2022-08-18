@@ -23,12 +23,35 @@ using System.Data.SqlClient;
 using Dapper;
 using System.Collections.Generic;
 
-namespace TP06.Models;
+namespace TP07.Models;
     public class BD {
 
  private static string _connectionString = 
         @"Server=MICAELA-CEMBAL\SQLEXPRESS;
         DataBase=Qatar2022;Trusted_Connection=True;";
+//a. ObtenerCategorias(): Devuelve una lista con todas las categorías
+    public static List<Categoria> ObtenerCategorias(){
+    List<Categoria> lista = new List<Categoria>();
+    string sql = "SELECT * FROM  Categorias";
+    using(SqlConnection db = new SqlConnection(_connectionString)){
+            lista = db.Query<Categoria>(sql).ToList();
+        }
+        return lista;
+
+}
+//b. ObtenerDificultades(): Devuelve una lista con todas las dificultades
+    public static List<Dificultad> ObtenerDificultades(){
+    List<Dificultad> lista = new List<Dificultad>();
+    string sql = "SELECT * FROM Dificultades";
+    using(SqlConnection db = new SqlConnection(_connectionString)){
+            lista = db.Query<Dificultad>(sql).ToList();
+        }
+        return lista;
+
+
+}
+
+
 
 
     }
