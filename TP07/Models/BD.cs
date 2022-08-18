@@ -65,7 +65,7 @@ public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria){
          conector = "AND";
         }
         if(categoria>0){
-        sql = sql + conector + "IdCategoria= categoria";
+        sql = sql + conector + "IdCategoria=categoria";
         }
         using(SqlConnection db = new SqlConnection(_connectionString)){
             lista = db.Query<Equipo>(sql).ToList();

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 namespace TP07.Models{
 
+
 public class Categoria
 {
     private int _idCategoria;

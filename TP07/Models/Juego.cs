@@ -31,8 +31,6 @@ namespace TP07.Models{
 
 public class Pregunta
 {
-    /*CREAR LISTAS*/
-
     private string _username;
     private int _puntajeActual;
     private int _cantidadPreguntasCorrectas;
@@ -46,6 +44,7 @@ public class Pregunta
            _cantidadPreguntasCorrectas=cantidadPreguntasCorrectas;
            _preguntas=preguntas;
            _respuestas=respuestas;
+           /*primero categoria y dificultad */
         }
     public int UserName
     {
@@ -53,10 +52,7 @@ public class Pregunta
         {
             return _username;
         }
-        set{
-            _username = value;
-        }
-
+        
     }
     public int PuntajeActual
     {
@@ -64,9 +60,7 @@ public class Pregunta
         {
             return _puntajeActual;
         }
-        set{
-            _puntajeActual = value;
-        }
+        
 
     }
 
@@ -76,9 +70,7 @@ public class Pregunta
         {
             return _cantidadPreguntasCorrectas;
         }
-        set{
-            _cantidadPreguntasCorrectas = value;
-        }
+        
     }
 
      public List<Pregunta> Preguntas
@@ -87,9 +79,7 @@ public class Pregunta
         {
             return _preguntas;
         }
-        set{
-            _preguntas = value;
-        }
+       
     }
    public List<Pregunta> Respuestas
     {
@@ -97,9 +87,25 @@ public class Pregunta
         {
             return _respuestas;
         }
-        set{
-            _respuestas = value;
-        }
+       
     }
+    public void InicializarJuego()
+    {
+          _username= "";
+           _puntajeActual=0;
+           _cantidadPreguntasCorrectas=0;
+           _preguntas="";
+           _respuestas="";
+    }
+
+    /*public ObtenerCategorias(){
+
+/*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
+     //Retorna la lista de categorías.}*/
 }
 }
+
+
+
+
+
