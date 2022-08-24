@@ -98,10 +98,65 @@ public class Pregunta
            _respuestas="";
     }
 
-    /*public ObtenerCategorias(){
+    public List<CategoriaJuego> ObtenerCategorias(){
 
 /*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
      //Retorna la lista de categorías.}*/
+     List<CategoriaJuego> lista = new List<CategoriaJuego>();
+     lista= BD.ObtenerCategorias();
+     return lista;
+     }
+      public List<DificultadJuego> ObtenerDificultades(){
+
+/*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
+     //Retorna la lista de categorías.}*/
+    List<DificultadJuego> lista = new List<Dificultad>();
+     lista= BD.ObtenerDificultades();
+     return lista;
+     }
+    public void CargarPartida(string username, int dificultad, int categoria)
+     {
+            /*Recibe la
+            dificultad y categoría elegidas, invoca a los métodos ObtenerPreguntas y
+            ObtenerRespuestas (en ese orden) y guarda los resultados en los atributos
+            _preguntas y _respuestas.
+            */
+            _preguntas= BD.ObtenerPreguntas() 
+            
+            _respuestas= BD.ObtenerRespuestas()
+
+     }
+
+     /*ObtenerProximaPregunta(): Retorna, de ser posible, una pregunta al azar de la
+lista de preguntas.
+*/
+public string ObtenerProximaPregunta(){
+var random = new Random();
+         var list = ObtenerPreguntas(dificultad, categoria)
+         int pos = random.Next(list.Count);
+         string pregProx= (list[pos]);
+         return pregProx;
+}
+public List<RespuestasUnaPregunta> ObtenerProximasRespuestas(int idPregunta){
+    /*Retorna una lista con todas las
+respuestas relacionadas a la pregunta enviada por parámetro*/
+    List<RespuestasUnaPregunta> lista = new List<RespuestasUnaPregunta>();
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                lista.connection.Query<RespuestasUnaPregunta>("SELECT * FROM Respuestas WHERE IdPregunta = " + idPregunta);
+            }
+    return lista;
+}
+public bool VerificarRespuesta(int idPregunta, int idRespuesta){
+    /*Recibe un id de
+pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue
+correcta o incorrecta. Previo a devolver el booleano realiza dos acciones:
+1. Si la respuesta del usuario fue correcta, suma una cantidad específica de
+puntos a _puntajeActual (la definen ustedes) y suma 1 respuesta correcta
+en _cantidadPreguntasCorrectas.
+2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
+
+
 }
 }
 

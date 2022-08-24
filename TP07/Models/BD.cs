@@ -82,8 +82,15 @@ a una lista en una sola operación. Podría servirte para agregar todas las resp
 que vienen de cada pregunta a la lista general de respuestas…
 (Crear además todos los atributos y métodos privados que se requieran vistos en clase,
 para poder conectar el proyecto con la base de datos*/
-public static List<Respuestas> ObtenerRespuestas(List<Pregunta> preguntas){
-        List<Preguntas> lista = new List<Preguntas>();
+public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas){
+        List<Respuesta> lista = new List<Respuesta>();
+        foreach(Pregunta pregunta in preguntas)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                lista.AddRange(connection.Query<Respuesta>("SELECT * FROM Respuestas WHERE IdPregunta = " + pregunta.IdPregunta).AsList());
+            }
+        }
        
 }
 
