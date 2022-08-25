@@ -7,9 +7,11 @@ namespace TP07.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private IWebHostEnvironment Environment;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IWebHostEnvironment environment, ILogger<HomeController> logger)
     {
+        Environment=environment;
         _logger = logger;
     }
 
@@ -27,5 +29,26 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult ConfigurarJuego()
+    {
+        /*Debe llamar al método InicializarJuego() de la clase
+        Juego y retornar la View ConfigurarJuego. Por ViewBag deben viajar las categorías y
+        dificultades!*/
+        Juego.InicializarJuego();
+        ViewBag.Categorias = Juego.ObtenerCategorias()
+        ViewBag.Dificultades = Juego.ObtenerDificultades()
+         return View("ConfigurarJuego");
+         
+    }
+    public IActionResult Jugar(){
+        /*Carga en ViewBag todo lo necesario para mostrar la pregunta
+            actual con sus respectivas respuestas (que proviene del método ObtenerProximaPregunta.
+            Si ya no hay más preguntas disponibles, retorna la view Fin. Si el método retorna una
+            pregunta, invoca a ObtenerProximasRespuestas de la clase Juego guardando estos datos
+            en ViewBag y retorna la view Juego.*/
+
+            
     }
 }
