@@ -31,11 +31,11 @@ namespace TP07.Models{
 
 public class Pregunta
 {
-    private string _username;
-    private int _puntajeActual;
-    private int _cantidadPreguntasCorrectas;
-    private List<Pregunta> _preguntas;
-    private List<Respuesta> _respuestas;
+    private static string _username;
+    private static int _puntajeActual;
+    private static int _cantidadPreguntasCorrectas;
+    private static List<Pregunta> _preguntas;
+    private static List<Respuesta> _respuestas;
    
     public Preguntas(string username,int puntajeActual,int cantidadPreguntasCorrectas,List<Pregunta> preguntas, List<Respuesta> respuestas)
         {
