@@ -147,17 +147,31 @@ respuestas relacionadas a la pregunta enviada por parámetro*/
             }
     return lista;
 }
-public bool VerificarRespuesta(int idPregunta, int idRespuesta){
-    /*Recibe un id de
-pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue
-correcta o incorrecta. Previo a devolver el booleano realiza dos acciones:
-1. Si la respuesta del usuario fue correcta, suma una cantidad específica de
-puntos a _puntajeActual (la definen ustedes) y suma 1 respuesta correcta
-en _cantidadPreguntasCorrectas.
-2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
+    public bool VerificarRespuesta(int idPregunta, int idRespuesta){
+         /*Recibe un id de
+    pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue
+    correcta o incorrecta. Previo a devolver el booleano realiza dos acciones:
+    1. Si la respuesta del usuario fue correcta, suma una cantidad específica de
+    puntos a _puntajeActual (la definen ustedes) y suma 1 respuesta correcta
+    en _cantidadPreguntasCorrectas.
+    2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
+        bool respuesta=true; 
+        if(idPregunta=idRespuesta)
+        {
+            _puntajeActual=_puntajeActual+10; 
+            _cantidadPreguntasCorrectas++; 
+             return respuesta; 
+        }
+        else
+        {
+            respuesta=false;
+            return respuesta; 
+        }
+        _preguntas.RemoveAt(idPregunta);
+        
+       
 
-
-}
+    }
 }
 
 
