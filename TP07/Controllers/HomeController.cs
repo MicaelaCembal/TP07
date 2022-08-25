@@ -52,6 +52,18 @@ public class HomeController : Controller
         Juego.CargarPartida(username, dificultad, categoria); 
         return RedirectToAction ("Jugar");
     }
+
+
+
+
+
+
+
+
+
+
+
+    
     public IActionResult Jugar(){
         /*Carga en ViewBag todo lo necesario para mostrar la pregunta
             actual con sus respectivas respuestas (que proviene del método ObtenerProximaPregunta.
