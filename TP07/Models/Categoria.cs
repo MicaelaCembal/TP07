@@ -9,7 +9,7 @@ public class Categoria
     private string _nombre;
     private string _foto;
    
-    public Categorias(int idCategoria,string nombre, string foto)
+    public Categoria(int idCategoria,string nombre, string foto)
         {
            _idCategoria=idCategoria;
            _nombre=nombre;

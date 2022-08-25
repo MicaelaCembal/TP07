@@ -10,8 +10,8 @@ public class Respuesta
     private string _contenido;
     private string _correcta;
     private string _foto;
-   
-    public Respuestas(int idRespuesta,int idPregunta, int opcion, string contenido, string correcta, string foto)
+
+    public Respuesta(int idRespuesta,int idPregunta, int opcion, string contenido, string correcta, string foto)
         {
             _idRespuesta=idRespuesta;
            _idPregunta= idPregunta;

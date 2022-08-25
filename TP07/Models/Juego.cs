@@ -29,7 +29,7 @@ en _cantidadPreguntasCorrectas.
 using System.Collections.Generic;
 namespace TP07.Models{
 
-public class Pregunta
+public class Juego
 {
     private static string _username;
     private static int _puntajeActual;
@@ -37,7 +37,7 @@ public class Pregunta
     private static List<Pregunta> _preguntas;
     private static List<Respuesta> _respuestas;
    
-    public Preguntas(string username,int puntajeActual,int cantidadPreguntasCorrectas,List<Pregunta> preguntas, List<Respuesta> respuestas)
+    public Juego(string username,int puntajeActual,int cantidadPreguntasCorrectas,List<Pregunta> preguntas, List<Respuesta> respuestas)
         {
            _username= username;
            _puntajeActual=puntajeActual;
@@ -46,7 +46,7 @@ public class Pregunta
            _respuestas=respuestas;
            /*primero categoria y dificultad */
         }
-    public int UserName
+    public string UserName
     {
         get
         {
@@ -64,7 +64,7 @@ public class Pregunta
 
     }
 
-    public string CantidadPreguntasCorrectas
+    public int CantidadPreguntasCorrectas
     {
         get
         {
@@ -81,7 +81,7 @@ public class Pregunta
         }
        
     }
-   public List<Pregunta> Respuestas
+   public List<Respuesta> Respuestas
     {
         get
         {
@@ -94,23 +94,23 @@ public class Pregunta
           _username= "";
            _puntajeActual=0;
            _cantidadPreguntasCorrectas=0;
-           _preguntas="";
-           _respuestas="";
+           _preguntas=null;
+           _respuestas=null;
     }
 
-    public List<CategoriaJuego> ObtenerCategorias(){
+    public List<Categoria> ObtenerCategorias(){
 
 /*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
      //Retorna la lista de categorías.}*/
-     List<CategoriaJuego> lista = new List<CategoriaJuego>();
+     List<Categoria> lista = new List<Categoria>();
      lista= BD.ObtenerCategorias();
      return lista;
      }
-      public List<DificultadJuego> ObtenerDificultades(){
+      public List<Dificultad> ObtenerDificultades(){
 
 /*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
      //Retorna la lista de categorías.}*/
-    List<DificultadJuego> lista = new List<Dificultad>();
+    List<Dificultad> lista = new List<Dificultad>();
      lista= BD.ObtenerDificultades();
      return lista;
      }
@@ -121,9 +121,9 @@ public class Pregunta
             ObtenerRespuestas (en ese orden) y guarda los resultados en los atributos
             _preguntas y _respuestas.
             */
-            _preguntas= BD.ObtenerPreguntas() 
+            _preguntas= BD.ObtenerPreguntas( dificultad, categoria);
             
-            _respuestas= BD.ObtenerRespuestas()
+            _respuestas= BD.ObtenerRespuestas(_preguntas);
 
      }
 
@@ -132,18 +132,18 @@ lista de preguntas.
 */
 public string ObtenerProximaPregunta(){
 var random = new Random();
-         var list = ObtenerPreguntas(dificultad, categoria)
+         var list = ObtenerPreguntas(dificultad, categoria);
          int pos = random.Next(list.Count);
          string pregProx= (list[pos]);
          return pregProx;
 }
-public List<RespuestasUnaPregunta> ObtenerProximasRespuestas(int idPregunta){
+public List<Respuesta> ObtenerProximasRespuestas(int idPregunta){
     /*Retorna una lista con todas las
 respuestas relacionadas a la pregunta enviada por parámetro*/
-    List<RespuestasUnaPregunta> lista = new List<RespuestasUnaPregunta>();
+    List<Respuesta> lista = new List<Respuesta>();
     using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                lista.connection.Query<RespuestasUnaPregunta>("SELECT * FROM Respuestas WHERE IdPregunta = " + idPregunta);
+                lista.connection.Query<Respuesta>("SELECT * FROM Respuestas WHERE IdPregunta = " + idPregunta);
             }
     return lista;
 }
@@ -156,7 +156,7 @@ respuestas relacionadas a la pregunta enviada por parámetro*/
     en _cantidadPreguntasCorrectas.
     2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
         bool respuesta=true; 
-        if(idPregunta=idRespuesta)
+        if(idPregunta==idRespuesta)
         {
             _puntajeActual=_puntajeActual+10; 
             _cantidadPreguntasCorrectas++; 
@@ -170,6 +170,7 @@ respuestas relacionadas a la pregunta enviada por parámetro*/
         _preguntas.RemoveAt(idPregunta);
         
     }
+}
 }
 
 

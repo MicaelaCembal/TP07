@@ -37,8 +37,8 @@ public class HomeController : Controller
         Juego y retornar la View ConfigurarJuego. Por ViewBag deben viajar las categorías y
         dificultades!*/
         Juego.InicializarJuego();
-        ViewBag.Categorias = Juego.ObtenerCategorias()
-        ViewBag.Dificultades = Juego.ObtenerDificultades()
+        ViewBag.Categorias = Juego.ObtenerCategorias();
+        ViewBag.Dificultades = Juego.ObtenerDificultades();
          return View("ConfigurarJuego");
          
     }
@@ -71,6 +71,16 @@ public class HomeController : Controller
         return RedirectToAction ("Jugar");
     }
 
-           
+        /*[HttpPost] IActionResult VerificarRespuesta(int idPregunta, int idRespuesta):
+    Recibe el id de la respuesta elegida, invoca al método VerificarRespuesta de la clase Juego
+    y retorna la view Respuesta, enviando por ViewBag si fue correcta o no. (Como opcional,
+    podés enviar también cuál era la respuesta correcta).*/
+    [HttpPost]
+   public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+    {    
+          ViewBag.RespuestaCorrecta =  Juego.VerificarRespuesta(idPregunta, idRespuesta);
+          return View("Respuesta");
+       
+    }   
     
 }

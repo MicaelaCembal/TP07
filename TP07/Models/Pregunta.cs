@@ -10,7 +10,7 @@ public class Pregunta
     private string _enunciado;
     private string _foto;
    
-    public Preguntas(int idPregunta,int idCategoria, int idDificultad, string enunciado, string foto)
+    public Pregunta(int idPregunta,int idCategoria, int idDificultad, string enunciado, string foto)
         {
            _idPregunta= idPregunta;
            _idCategoria=idCategoria;
@@ -42,16 +42,6 @@ public class Pregunta
 
     }
 
-    public string Nombre
-    {
-        get
-        {
-            return _nombre;
-        }
-        set{
-            _nombre = value;
-        }
-    }
 
      public string Foto
     {

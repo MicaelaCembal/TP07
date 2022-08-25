@@ -56,8 +56,8 @@ Si dificultad = -1, trae las preguntas de todas las dificultades.
 Si categoria = -1, trae las preguntas de todas las categorías.
 
 */
-public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria){
-        List<Preguntas> lista = new List<Preguntas>();
+public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria){
+        List<Pregunta> lista = new List<Pregunta>();
          string sql = "SELECT * FROM Preguntas";
          string conector = "WHERE";
         if(dificultad>0){
@@ -92,5 +92,6 @@ public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas){
             }
         }
        
+}
 }
 
