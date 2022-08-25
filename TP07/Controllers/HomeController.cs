@@ -42,7 +42,6 @@ public class HomeController : Controller
          return View("ConfigurarJuego");
          
     }
-
     public IActionResult Jugar(){
         /*Carga en ViewBag todo lo necesario para mostrar la pregunta
             actual con sus respectivas respuestas (que proviene del método ObtenerProximaPregunta.
@@ -50,17 +49,14 @@ public class HomeController : Controller
             pregunta, invoca a ObtenerProximasRespuestas de la clase Juego guardando estos datos
             en ViewBag y retorna la view Juego.*/
 
-            
-    }
-       
-    public IActionResult Comenzar(string username, int dificultad, int categoria)
-    {
-         /*IActionResult Comenzar(string username, int dificultad, int categoria): Recibe el
-            username, dificultad y categoría elegidas por el usuario, invoca al método CargarPartida de
-            la clase Juego y redirige el sitio al ActionResult Jugar.
-            */
-        Juego.CargarPartida(username, dificultad, categoria); 
-        return RedirectToAction ("Jugar");
-    }
+            ViewBag.UnaPregunta= Juego.ObtenerProximaPregunta();
+            if(Juego.ObtenerProximaPregunta() == null){
+            return View("Fin");
+            }
+            else{
+                ViewBag.RespuestasPreg= Juego.ObtenerProximasRespuestas(UnaPregunta.idPregunta);
+                return View("Juego");
+            }
 
+    }
 }
