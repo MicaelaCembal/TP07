@@ -52,15 +52,7 @@ public class HomeController : Controller
 
             
     }
-       
-    public IActionResult Comenzar(string username, int dificultad, int categoria)
-    {
-         /*IActionResult Comenzar(string username, int dificultad, int categoria): Recibe el
-            username, dificultad y categoría elegidas por el usuario, invoca al método CargarPartida de
-            la clase Juego y redirige el sitio al ActionResult Jugar.
-            */
-        Juego.CargarPartida(username, dificultad, categoria); 
-        return RedirectToAction ("Jugar");
-    }
 
+           
+    
 }
