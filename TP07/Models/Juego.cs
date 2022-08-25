@@ -169,10 +169,11 @@ respuestas relacionadas a la pregunta enviada por parámetro*/
         }
         _preguntas.RemoveAt(idPregunta);
         
-       
-
     }
 }
+
+
+
 
 
 
