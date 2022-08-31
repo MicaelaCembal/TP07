@@ -27,7 +27,7 @@ namespace TP07.Models;
     public class BD {
 
  private static string _connectionString = 
-        @"Server=MICAELA-CEMBAL\SQLEXPRESS;
+        @"Server=127.0.0.1\SQLEXPRESS01;
         DataBase=Qatar2022;Trusted_Connection=True;";
 //a. ObtenerCategorias(): Devuelve una lista con todas las categorías
     public static List<Categoria> ObtenerCategorias(){
@@ -68,7 +68,7 @@ public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria){
         sql = sql + conector + "IdCategoria=categoria";
         }
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            lista = db.Query<Equipo>(sql).ToList();
+            lista = db.Query<Pregunta>(sql).ToList();
         }
         return lista;
     }
@@ -91,7 +91,7 @@ public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas){
                 lista.AddRange(connection.Query<Respuesta>("SELECT * FROM Respuestas WHERE IdPregunta = " + pregunta.IdPregunta).AsList());
             }
         }
-       
+       return  lista;
 }
 }
 

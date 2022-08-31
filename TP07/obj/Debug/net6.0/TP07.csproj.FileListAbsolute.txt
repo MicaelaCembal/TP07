@@ -1,0 +1,8 @@
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.csproj.AssemblyReference.cache
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.AssemblyInfoInputs.cache
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.AssemblyInfo.cs
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.csproj.CoreCompileInputs.cache
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.RazorAssemblyInfo.cache
+C:\Users\46645633\Downloads\TP07\TP07\obj\Debug\net6.0\TP07.RazorAssemblyInfo.cs
