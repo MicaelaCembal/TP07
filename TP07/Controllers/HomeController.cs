@@ -40,6 +40,7 @@ public class HomeController : Controller
         ViewBag.Categorias = Juego.ObtenerCategorias();
         ViewBag.Dificultades = Juego.ObtenerDificultades();
          return View("ConfigurarJuego");
+         //redirect to action
          
     }
 
@@ -55,7 +56,7 @@ public class HomeController : Controller
             return View("Fin");
             }
             else{
-                ViewBag.RespuestasPreg= Juego.ObtenerProximasRespuestas(UnaPregunta.idPregunta);
+                ViewBag.RespuestasPreg= Juego.ObtenerProximasRespuestas(ViewBag.UnaPregunta.idPregunta);
                 return View("Juego");
             }
 
@@ -68,7 +69,7 @@ public class HomeController : Controller
             la clase Juego y redirige el sitio al ActionResult Jugar.
             */
         Juego.CargarPartida(username, dificultad, categoria); 
-        return RedirectToAction ("Jugar");
+        return RedirectToAction("Jugar");
     }
 
         /*[HttpPost] IActionResult VerificarRespuesta(int idPregunta, int idRespuesta):

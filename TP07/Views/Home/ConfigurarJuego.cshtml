@@ -14,7 +14,7 @@ Debe existir un botón Jugar que invoque al método Comenzar del controller.
 -->
 
 <h1>DIFICULTAD</h1>
-  </div>
+  
 <form action='@Url.Action("Comenzar","Home")' method="GET" enctype="multipart/form-data">
 
   <div class="form-group pb-4">
@@ -34,11 +34,8 @@ Debe existir un botón Jugar que invoque al método Comenzar del controller.
   </div>
 
 
-
-</form>
-
 <h1>CATEGORÍA</h1>
-<form action='@Url.Action("GuardarJugador","Home")' method="GET" enctype="multipart/form-data">
+
   <div class="form-group pb-4">
       <input type="radio" class="form-control" id="Madrijim" placeholder="Madrijim"  autocomplete= "off" name="Madrijim" required>
   </div>
@@ -59,12 +56,9 @@ Debe existir un botón Jugar que invoque al método Comenzar del controller.
     <input type="radio" class="form-control" id="¡Todas!" placeholder="¡Todas!" autocomplete= "off" name="¡Todas!" required>
   </div>
 
-</form>
+  <input type="text" class="form-control" id="Nombre" placeholder="Nombre"  autocomplete= "off" name="Nombre" required>
+ 
 
-<form action='@Url.Action("GuardarJugador","Home")' method="GET" enctype="multipart/form-data">
-  <input type="hidden" class="form-control" id="IdEquipo" name="IdEquipo" value="@ViewBag.IdEquipo">
-      <input type="text" class="form-control" id="Nombre" placeholder="Nombre"  autocomplete= "off" name="Nombre" required>
-  </div>
-</form>
 <button type="submit" class="btn btn-primary_ botonderecho">¡Comenzar a jugar!</button>
-</div>
+
+</form>

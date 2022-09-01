@@ -36,7 +36,7 @@ public class Juego
     private static int _cantidadPreguntasCorrectas;
     private static List<Pregunta> _preguntas;
     private static List<Respuesta> _respuestas;
-   
+   /*
     public Juego(string username,int puntajeActual,int cantidadPreguntasCorrectas,List<Pregunta> preguntas, List<Respuesta> respuestas)
         {
            _username= username;
@@ -44,9 +44,10 @@ public class Juego
            _cantidadPreguntasCorrectas=cantidadPreguntasCorrectas;
            _preguntas=preguntas;
            _respuestas=respuestas;
-           /*primero categoria y dificultad */
+           /*primero categoria y dificultad 
         }
-    public string UserName
+        */
+    public static string UserName
     {
         get
         {
@@ -54,7 +55,7 @@ public class Juego
         }
         
     }
-    public int PuntajeActual
+    public static int PuntajeActual
     {
         get
         {
@@ -64,7 +65,7 @@ public class Juego
 
     }
 
-    public int CantidadPreguntasCorrectas
+    public static int CantidadPreguntasCorrectas
     {
         get
         {
@@ -73,7 +74,7 @@ public class Juego
         
     }
 
-     public List<Pregunta> Preguntas
+     public static List<Pregunta> Preguntas
     {
         get
         {
@@ -81,7 +82,7 @@ public class Juego
         }
        
     }
-   public List<Respuesta> Respuestas
+   public static List<Respuesta> Respuestas
     {
         get
         {
@@ -89,7 +90,7 @@ public class Juego
         }
        
     }
-    public void InicializarJuego()
+    public static void InicializarJuego()
     {
           _username= "";
            _puntajeActual=0;
@@ -98,7 +99,7 @@ public class Juego
            _respuestas=null;
     }
 
-    public List<Categoria> ObtenerCategorias(){
+    public static List<Categoria> ObtenerCategorias(){
 
 /*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
      //Retorna la lista de categorías.}*/
@@ -106,7 +107,7 @@ public class Juego
      lista= BD.ObtenerCategorias();
      return lista;
      }
-      public List<Dificultad> ObtenerDificultades(){
+      public static List<Dificultad> ObtenerDificultades(){
 
 /*crear nueva lista y BD.ListarCategorias() = a la nueva lista*/
      //Retorna la lista de categorías.}*/
@@ -114,7 +115,7 @@ public class Juego
      lista= BD.ObtenerDificultades();
      return lista;
      }
-    public void CargarPartida(string username, int dificultad, int categoria)
+    public static void CargarPartida(string username, int dificultad, int categoria)
      {
             /*Recibe la
             dificultad y categoría elegidas, invoca a los métodos ObtenerPreguntas y
@@ -124,30 +125,36 @@ public class Juego
             _preguntas= BD.ObtenerPreguntas( dificultad, categoria);
             
             _respuestas= BD.ObtenerRespuestas(_preguntas);
+            _username=username;
 
      }
 
      /*ObtenerProximaPregunta(): Retorna, de ser posible, una pregunta al azar de la
 lista de preguntas.
 */
-public string ObtenerProximaPregunta(){
+public static Pregunta ObtenerProximaPregunta(){
 var random = new Random();
-         var list = ObtenerPreguntas(dificultad, categoria);
+         var list = _preguntas;
          int pos = random.Next(list.Count);
-         string pregProx= (list[pos]);
+         Pregunta pregProx= (list[pos]);
          return pregProx;
 }
-public List<Respuesta> ObtenerProximasRespuestas(int idPregunta){
+
+public static List<Respuesta> ObtenerProximasRespuestas(int idPreguntaok){
     /*Retorna una lista con todas las
 respuestas relacionadas a la pregunta enviada por parámetro*/
-    List<Respuesta> lista = new List<Respuesta>();
-    using (SqlConnection connection = new SqlConnection(_connectionString))
+List<Respuesta> lista = new List<Respuesta>();
+     foreach(Respuesta respuesta in _respuestas)
+        {
+            if(respuesta.IdRespuesta == idPreguntaok)
             {
-                lista.connection.Query<Respuesta>("SELECT * FROM Respuestas WHERE IdPregunta = " + idPregunta);
+                lista.Add(respuesta);
+
             }
+        }
     return lista;
 }
-    public bool VerificarRespuesta(int idPregunta, int idRespuesta){
+    public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
          /*Recibe un id de
     pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue
     correcta o incorrecta. Previo a devolver el booleano realiza dos acciones:
