@@ -8,10 +8,10 @@ public class Respuesta
     private int _idPregunta;
     private int _opcion;
     private string _contenido;
-    private string _correcta;
+    private bool _correcta;
     private string _foto;
 
-    public Respuesta(int idRespuesta,int idPregunta, int opcion, string contenido, string correcta, string foto)
+    public Respuesta(int idRespuesta,int idPregunta, int opcion, string contenido, bool correcta, string foto)
         {
             _idRespuesta=idRespuesta;
            _idPregunta= idPregunta;
@@ -64,7 +64,7 @@ public class Respuesta
             _contenido = value;
         }
     }
-  public string Correcta
+  public bool Correcta
     {
         get
         {

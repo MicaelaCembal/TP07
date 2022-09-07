@@ -53,6 +53,17 @@ public class Pregunta
             _foto = value;
         }
     }
+
+     public string Enunciado
+    {
+        get
+        {
+            return _enunciado;
+        }
+        set{
+            _enunciado = value;
+        }
+    }
   
 }
 }

@@ -51,12 +51,16 @@ public class HomeController : Controller
             pregunta, invoca a ObtenerProximasRespuestas de la clase Juego guardando estos datos
             en ViewBag y retorna la view Juego.*/
 
-            ViewBag.UnaPregunta= Juego.ObtenerProximaPregunta();
-            if(Juego.ObtenerProximaPregunta() == null){
+            Pregunta pregunta= Juego.ObtenerProximaPregunta();
+
+            if(pregunta== null){
             return View("Fin");
             }
             else{
-                ViewBag.RespuestasPreg= Juego.ObtenerProximasRespuestas(ViewBag.UnaPregunta.idPregunta);
+                ViewBag.Respuestas= Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+                ViewBag.Pregunta = pregunta; 
+               /* List<Respuesta> RespuestasPreg = new List<Respuesta>();*/
+                
                 return View("Juego");
             }
 

@@ -134,10 +134,9 @@ lista de preguntas.
 */
 public static Pregunta ObtenerProximaPregunta(){
 var random = new Random();
-         var list = _preguntas;
-         int pos = random.Next(list.Count);
-         Pregunta pregProx= (list[pos]);
-         return pregProx;
+         
+         int pos = random.Next(_preguntas.Count);          
+         return _preguntas[pos];
 }
 
 public static List<Respuesta> ObtenerProximasRespuestas(int idPreguntaok){
@@ -146,7 +145,7 @@ respuestas relacionadas a la pregunta enviada por parámetro*/
 List<Respuesta> lista = new List<Respuesta>();
      foreach(Respuesta respuesta in _respuestas)
         {
-            if(respuesta.IdRespuesta == idPreguntaok)
+            if(respuesta.IdPregunta == idPreguntaok)
             {
                 lista.Add(respuesta);
 

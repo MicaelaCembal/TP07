@@ -27,17 +27,17 @@ namespace TP07.Models;
     public class BD {
 
  private static string _connectionString = 
-        @"Server=127.0.0.1\SQLEXPRESS01;
+        @"Server=127.0.0.1;
         DataBase=TP07;Trusted_Connection=True;";
 //a. ObtenerCategorias(): Devuelve una lista con todas las categorías
     public static List<Categoria> ObtenerCategorias(){
-    List<Categoria> lista = new List<Categoria>();
-    string sql = "SELECT * FROM  Categorias";
-    using(SqlConnection db = new SqlConnection(_connectionString)){
-            lista = db.Query<Categoria>(sql).ToList();
-        }
+        List<Categoria> lista = new List<Categoria>();
+        string sql = "SELECT * FROM  Categorias";
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+                lista = db.Query<Categoria>(sql).ToList();
+            }
         return lista;
-}
+    }
 //b. ObtenerDificultades(): Devuelve una lista con todas las dificultades
     public static List<Dificultad> ObtenerDificultades(){
     List<Dificultad> lista = new List<Dificultad>();
@@ -61,14 +61,14 @@ public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria){
          string sql = "SELECT * FROM Preguntas";
          string conector = "WHERE";
         if(dificultad>0){
-         sql = sql + conector + "IdDificultad=dificultad";
+         sql = sql + conector + "IdDificultad= @pdificultad";
          conector = "AND";
         }
         if(categoria>0){
-        sql = sql + conector + "IdCategoria=categoria";
+        sql = sql + conector + "IdCategoria= @pcategoria";
         }
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            lista = db.Query<Pregunta>(sql).ToList();
+            lista = db.Query<Pregunta>(sql, new{pdificultad = dificultad, pcategoria = categoria}).ToList();
         }
         return lista;
     }
@@ -85,10 +85,11 @@ para poder conectar el proyecto con la base de datos*/
 public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas){
         List<Respuesta> lista = new List<Respuesta>();
         foreach(Pregunta pregunta in preguntas)
-        {
+        {   
+            string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @pIdPregunta";
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                lista.AddRange(connection.Query<Respuesta>("SELECT * FROM Respuestas WHERE IdPregunta = " + pregunta.IdPregunta).AsList());
+                lista.AddRange(connection.Query<Respuesta>(sql, new {pIdPregunta = pregunta.IdPregunta}));
             }
         }
        return  lista;
