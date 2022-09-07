@@ -21,17 +21,18 @@ del controller).-->
                         {
                         
                          <div class="col-md-6 py-3">
+                         
                                <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">
-                                 Egypt
-                                 <input for="opt_1" type="radio" name="stp_1_select_option" value="Egypt">
+                               @resp.Contenido
+                                 <input for="opt_1" type="radio" name="stp_1_select_option" value="@resp.Contenido">
                               </label>
                            </div>
-                           
- 
+                            
                         }
-                        
- </div>
- </div>
+                        <!--a href='@Url.Action("Juego", "Home", new{IdPregunta=@ViewBag.Preguntas})'class="btn btn-primary_ botonderecho">Siguiente</a-->
+                              
+      </div>
+      </div>
 
 
 

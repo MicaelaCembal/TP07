@@ -17,28 +17,28 @@ Debe existir un botón Jugar que invoque al método Comenzar del controller.
   
 <form action='@Url.Action("Comenzar","Home")' method="GET" enctype="multipart/form-data">
 
-    <input type="radio"  id="Baja" value="Baja"  name="Dificultad"/> <label for="Baja"> Baja </label><br/>
+    <input type="radio"  id="Baja" value="1"  name="Dificultad"/> <label for="Baja"> Baja </label><br/>
 
-    <input type="radio"  id="Media" value="Media" name="Dificultad"/> <label for="Media"> Media </label><br/>
+    <input type="radio"  id="Media" value="2" name="Dificultad"/> <label for="Media"> Media </label><br/>
 
-    <input type="radio"  id="Alta" value="Alta" name="Dificultad"/> <label for="Alta"> Alta </label><br/>
+    <input type="radio"  id="Alta" value="3" name="Dificultad"/> <label for="Alta"> Alta </label><br/>
  
-    <input type="radio"  id="¡Todas!" value="-1"  name="Dificultad"/> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
+    <input type="radio"  id="Todas" value="-1"  name="Dificultad"/> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
  
 
 
 <h1>CATEGORÍA</h1>
 
 
-    <input type="radio" id="Madrijim" value="Madrijim" name="Categoria" /> <label for="Madrijim"> Madrijim </label><br/>
+    <input type="radio" id="Madrijim" value="1" name="Categoria" /> <label for="Madrijim"> Madrijim </label><br/>
  
-    <input type="radio"  id="Majane" value="Majane" name="Categoria" /> <label for="Majane"> Majane </label><br/>
+    <input type="radio"  id="Majane" value="2" name="Categoria" /> <label for="Majane"> Majane </label><br/>
  
-    <input type="radio" id="Dorjarock" value="Dorjarock" name="Categoria" /> <label for="Dorjarock"> Dorjarock </label><br/>
+    <input type="radio" id="Dorjarock" value="3" name="Categoria" /> <label for="Dorjarock"> Dorjarock </label><br/>
  
-    <input type="radio" id="Comunidad " value="Comunidad " name="Categoria "/> <label for="Comunidad"> Comunidad </label><br/>
+    <input type="radio" id="Comunidad " value="4 " name="Categoria"/> <label for="Comunidad"> Comunidad </label><br/>
  
-    <input type="radio" id="¡Todas!" value="-1" name="Categoria" /> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
+    <input type="radio" id="Todas" value="-1" name="Categoria" /> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
   
   <h1>NOMBRE</h1>
   <input type="text" class="form-control" id="Nombre"  autocomplete= "off" name="username" required><br/>

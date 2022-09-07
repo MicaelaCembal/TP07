@@ -59,13 +59,13 @@ Si categoria = -1, trae las preguntas de todas las categorías.
 public static List<Pregunta> ObtenerPreguntas(int dificultad, int categoria){
         List<Pregunta> lista = new List<Pregunta>();
          string sql = "SELECT * FROM Preguntas";
-         string conector = "WHERE";
+         string conector = " WHERE ";
         if(dificultad>0){
-         sql = sql + conector + "IdDificultad= @pdificultad";
-         conector = "AND";
+         sql = sql + conector + " IdDificultad = @pdificultad ";
+         conector = " AND ";
         }
         if(categoria>0){
-        sql = sql + conector + "IdCategoria= @pcategoria";
+        sql = sql + conector + " IdCategoria = @pcategoria ";
         }
         using(SqlConnection db = new SqlConnection(_connectionString)){
             lista = db.Query<Pregunta>(sql, new{pdificultad = dificultad, pcategoria = categoria}).ToList();
