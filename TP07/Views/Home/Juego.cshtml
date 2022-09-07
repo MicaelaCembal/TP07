@@ -1,0 +1,43 @@
+<!--Juego.cshtml
+Muestra:
+a. Nombre de usuario y puntaje actual
+b. Número de pregunta actual y enunciado (Si hay foto la muestra)
+c. Un formulario (POST) con 4 botones para elegir la respuesta correcta (Si las
+respuestas tienen fotos, las muestra también como parte de la opción).
+d. Un botón para responder y enviar el formulario (llama al método VerificarRespuesta
+del controller).-->
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+      <div class="form_content">
+                     <div class="question_title py-5 text-white">
+                        <h1 class="text-center text-uppercase overflow-hidden rounded-pill">Which is the Smallest Country in the World ?</h1>
+                     </div>
+                        <div class="row text-center form_items">
+                           <div class="col-md-6 py-3">
+                              <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">
+                                 Egypt
+                                 <input for="opt_1" type="radio" name="stp_1_select_option" value="Egypt">
+                              </label>
+                           </div>
+                           <div class="col-md-6 py-3">
+                              <label id="opt_2" class="step_1 bg-white overflow-hidden rounded-pill text-center">
+                                 Vatican City
+                                 <input for="opt_2" type="radio" name="stp_1_select_option" value="Vatican City" checked>
+                              </label>
+                           </div>
+                           <div class="col-md-6 py-3">
+                              <label id="opt_3" class="step_1 bg-white overflow-hidden rounded-pill text-center active">
+                                 Singapore
+                                 <input for="opt_3" type="radio" name="stp_1_select_option" value="Singapore">
+                              </label>
+                           </div>
+                           <div class="col-md-6 py-3">
+                              <label id="opt_4" class="step_1 bg-white overflow-hidden rounded-pill text-center">
+                                 France
+                                 <input for="opt_4" type="radio" name="stp_1_select_option" value="France">
+                              </label>
+                           </div>
+                        </div>

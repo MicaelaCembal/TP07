@@ -28,7 +28,7 @@ namespace TP07.Models;
 
  private static string _connectionString = 
         @"Server=127.0.0.1\SQLEXPRESS01;
-        DataBase=Qatar2022;Trusted_Connection=True;";
+        DataBase=TP07;Trusted_Connection=True;";
 //a. ObtenerCategorias(): Devuelve una lista con todas las categorías
     public static List<Categoria> ObtenerCategorias(){
     List<Categoria> lista = new List<Categoria>();
