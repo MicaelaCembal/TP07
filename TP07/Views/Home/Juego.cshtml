@@ -16,17 +16,17 @@ del controller).-->
                      </div>
                      <div class="row text-center form_items">
                        <form action='@Url.Action("VerificarRespuesta", "Home")' method="post">
+                       <input type="hidden" name="idPregunta" value="@ViewBag.Pregunta.IdPregunta">
                             <div class="row">
                               @foreach(Respuesta resp in @ViewBag.Respuestas)
                               {
-                               
+                                 
                                  <!--<p class= "step_1 bg-white overflow-hidden rounded-pill text-center" style=""> @resp.Contenido </p>-->
                                  <div class="col-lg-6 mb-2"><input for="opt_1" type="radio" name="idRespuesta" value="@resp.IdRespuesta"> <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">@resp.Contenido</label></div>
                               }  
                             
                             </div>
-                               
-               <button type="submit" class="btn btn-primary_ botonderecho">¡enviar!</button>
+                              <button type="submit" class="btn btn-primary_ botonderecho">¡enviar!</button>
                            </form>
                         
                         </div>

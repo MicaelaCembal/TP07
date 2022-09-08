@@ -94,5 +94,22 @@ public static List<Respuesta> ObtenerRespuestas(List<Pregunta> preguntas){
         }
        return  lista;
 }
+
+public static Pregunta ObtenerUnaPregunta(int idPregunta)
+{
+        Pregunta UnaPregunta= null; 
+         
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "SELECT * FROM Preguntas WHERE IdPregunta = @pIdPregunta";
+                UnaPregunta=db.QueryFirstOrDefault<Pregunta>(sql, new {pIdPregunta=idPregunta}); 
+            }
+            return UnaPregunta;
 }
+       
+}
+
+
+
+
 

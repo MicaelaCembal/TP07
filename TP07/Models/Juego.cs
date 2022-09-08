@@ -161,19 +161,25 @@ List<Respuesta> lista = new List<Respuesta>();
     puntos a _puntajeActual (la definen ustedes) y suma 1 respuesta correcta
     en _cantidadPreguntasCorrectas.
     2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
-        bool respuesta=true; 
-        if(idPregunta==idRespuesta)
+
+        foreach(Respuesta resp in _respuestas)
         {
-            _puntajeActual=_puntajeActual+10; 
-            _cantidadPreguntasCorrectas++; 
-             return respuesta; 
+            
+                if (resp.IdPregunta==idPregunta)
+                {
+                  
+                    if (resp.IdRespuesta==idRespuesta && resp.Correcta==true)
+                    {
+                        _puntajeActual=_puntajeActual+10; 
+                        _cantidadPreguntasCorrectas++; 
+                        return true; 
+                    }
+                }
         }
-        else
-        {
-            respuesta=false;
-            return respuesta; 
-        }
-        _preguntas.RemoveAt(idPregunta);
+        
+        //_preguntas.RemoveAt(idPregunta);
+
+        return false;
         
     }
 }

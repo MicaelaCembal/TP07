@@ -54,7 +54,7 @@ public class HomeController : Controller
             Pregunta pregunta= Juego.ObtenerProximaPregunta();
 
             if(pregunta== null){
-            return View("Fin");
+              return View("Fin");
             }
             else{
                 ViewBag.Respuestas= Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
@@ -103,17 +103,30 @@ public class HomeController : Controller
         
          
          ViewBag.FueRespondida= true;*/
-        ViewBag.pregunta = Juego.ObtenerPregunta(idPregunta);
+       /* ViewBag.pregunta = Juego.ObtenerPregunta(idPregunta);
         ViewBag.respuestas = Juego.ObtenerProximasRespuestas(idPregunta);
-
+*/
        /* erificrs respyeat devuelve u boolenaon 
         si es true--> cartelito de genial continuar
         sino--> volver y en la view misma continuar*/
-        Juego.VerificarRespuesta(ididi);
+        
+        ViewBag.IdRespuesta=idRespuesta;
+        if (Juego.VerificarRespuesta(idPregunta,idRespuesta))
+        {
+            ViewBag.Mensaje = "¡Muy bien! Correctoooo";
+            ViewBag.Correcta=true;
+            
+        }
+        else
+        {
+            ViewBag.Correcta=false;
+             ViewBag.Mensaje = "¡Naa! ¿Sos de Iona? Incorrecto";
+        }
+        ViewBag.UnaPregunta= BD.ObtenerUnaPregunta(idPregunta);
+        ViewBag.Respuestas= Juego.ObtenerProximasRespuestas(idPregunta);
+        return View("Respuesta");
 
-        ViewBag.idRespuestaRespondida = idRespuesta;
-
-          return View("Respuesta");
+       
        
     }   
     
