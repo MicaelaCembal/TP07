@@ -83,7 +83,26 @@ public class HomeController : Controller
     [HttpPost]
    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {    
-          ViewBag.RespuestaCorrecta =  Juego.VerificarRespuesta(idPregunta, idRespuesta);
+        List<Respuesta> resp = Juego.ObtenerProximasRespuestas(idPregunta);
+
+         if(Juego.VerificarRespuesta(idPregunta, idRespuesta)== true){
+            ViewBag.RespCorrecta=idRespuesta;
+            ViewBag.RespIncorrecta=-1; 
+         }
+         else{
+            ViewBag.RespIncorrecta=idRespuesta; 
+            foreach(Respuesta respu in resp)
+            {
+                if(respu.Correcta==true)
+                {
+                     ViewBag.RespCorrecta=respu.IdRespuesta; 
+                }
+            }
+         }
+
+        
+         
+         ViewBag.FueRespondida= true;
           return View("Respuesta");
        
     }   
