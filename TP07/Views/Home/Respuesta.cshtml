@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+        <div class="form_content">
+                     <div class="question_title py-5 text-white">
+                        <h1 class="text-center text-uppercase overflow-hidden rounded-pill">@ViewBag.Pregunta.Enunciado </h1>
+                     </div>
+                     <div class="row text-center form_items">
+                       <form action='@Url.Action("VerificarRespuesta", "Home")' method="post">
+                            <div class="row">
+                              @foreach(Respuesta resp in @ViewBag.Respuestas)
+                              {
+                                @if(resp.Correcta){
+
+                                }
+                                else{
+                                 
+                                }
+                                 <!--<p class= "step_1 bg-white overflow-hidden rounded-pill text-center" style=""> @resp.Contenido </p>-->
+                                 <div class="col-lg-6 mb-2"><input for="opt_1" type="radio" name="idRespuesta" value="@resp.IdRespuesta"> <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">@resp.Contenido</label></div>
+                              }  
+                            
+                            </div>
+                               
+               <button type="submit" class="btn btn-primary_ botonderecho">¡enviar!</button>
+                           </form>
+                        
+                        </div>
+                                                
+                     </div>
+      </div>
+      
+                         
+
+
+
+
+
+
+                       
+                    

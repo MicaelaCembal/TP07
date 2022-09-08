@@ -10,43 +10,31 @@ del controller).-->
 @{
     ViewData["Title"] = "Home Page";
 }
-
-<!---->
         <div class="form_content">
                      <div class="question_title py-5 text-white">
-                        <h1 class="text-center text-uppercase overflow-hidden rounded-pill">@ViewBag.Pregunta.Enunciado</h1>
+                        <h1 class="text-center text-uppercase overflow-hidden rounded-pill">@ViewBag.Pregunta.Enunciado </h1>
                      </div>
-                          <div class="row text-center form_items">
-                     @foreach(Respuesta resp in @ViewBag.Respuestas)
-                        {
-                        
-                         <div class="col-md-6 py-3">
-                         
-                               <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">
-                               @resp.Contenido
-                                 <input for="opt_1" type="radio" name="stp_1_select_option" value="@resp.Contenido">
-                              </label>
-                           </div>
+                     <div class="row text-center form_items">
+                       <form action='@Url.Action("VerificarRespuesta", "Home")' method="post">
+                            <div class="row">
+                              @foreach(Respuesta resp in @ViewBag.Respuestas)
+                              {
+                               
+                                 <!--<p class= "step_1 bg-white overflow-hidden rounded-pill text-center" style=""> @resp.Contenido </p>-->
+                                 <div class="col-lg-6 mb-2"><input for="opt_1" type="radio" name="idRespuesta" value="@resp.IdRespuesta"> <label id="opt_1" class="step_1 bg-white overflow-hidden rounded-pill text-center">@resp.Contenido</label></div>
+                              }  
                             
-                        }
-
-
-                        <div class="col -6">
-                        @if (@ViewBag.FueRespondida == true){
-                        if(resp.IdRespuesta == @ViewBag.RespuestaCorrecta){
-                           <p class="" style="background-color: green; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px"
-                        }else if(resp.IdRespuesta==@ViewBag.RespuestaIncorrecta){
-                            <p class="" style="background-color: red; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px" 
-                        }else{
-                             <p class="" style="background-color: #a58cce; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px"
-                        }
-                        }else{
-                           <a class="answers" href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = ViewBag.Pregunta.IdPregunta})'> @resp.Contenido </a>
-                     //a href='@Url.Action("Juego", "Home", new{IdPregunta=@ViewBag.Preguntas})'class="btn btn-primary_ botonderecho">Siguiente</a
-                              
+                            </div>
+                               
+               <button type="submit" class="btn btn-primary_ botonderecho">¡enviar!</button>
+                           </form>
+                        
+                        </div>
+                                                
+                     </div>
       </div>
-      </div>
-
+      
+                         
 
 
 

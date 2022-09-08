@@ -291,8 +291,9 @@ label.active {
   font-size: 1rem;
   padding: 1rem;
   font-weight: 600;
-  background: -webkit-gradient(linear, left top, right top, from(#00276e), to(#194df5));
-  background: linear-gradient(to right, #00276e, #194df5);
+  background: -webkit-gradient(linear, left top, right top, from(#194df5), to(#ffffff));
+  background: linear-gradient(to right, #ffffff, #ffffff);
+ 
 }
 .next_btn .fas {
   width: 2.5rem;
@@ -308,8 +309,8 @@ label.active {
 }
 .next_btn:hover {
   color: #000000 !important;
-  background: -webkit-gradient(linear, left top, right top, from(#00276e), to(#194df5));
-  background: linear-gradient(to right, #00276e, #194df5);
+  background: -webkit-gradient(linear, left top, right top, from(#194df5), to(#194df5));
+  background: linear-gradient(to right, #194df5, #194df5);
   -webkit-transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -537,4 +538,12 @@ button {
     bottom: 2%;
     left: 15%;
   }
+}
+
+.correcto{
+  background-color: green;
+}
+
+.incorrecto{
+  background-color: red;
 }

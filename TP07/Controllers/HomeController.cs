@@ -83,7 +83,7 @@ public class HomeController : Controller
     [HttpPost]
    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {    
-        List<Respuesta> resp = Juego.ObtenerProximasRespuestas(idPregunta);
+       /* List<Respuesta> resp = Juego.ObtenerProximasRespuestas(idPregunta);
 
          if(Juego.VerificarRespuesta(idPregunta, idRespuesta)== true){
             ViewBag.RespCorrecta=idRespuesta;
@@ -93,7 +93,7 @@ public class HomeController : Controller
             ViewBag.RespIncorrecta=idRespuesta; 
             foreach(Respuesta respu in resp)
             {
-                if(respu.Correcta==true)
+                if(respu.Correcta)
                 {
                      ViewBag.RespCorrecta=respu.IdRespuesta; 
                 }
@@ -102,7 +102,17 @@ public class HomeController : Controller
 
         
          
-         ViewBag.FueRespondida= true;
+         ViewBag.FueRespondida= true;*/
+        ViewBag.pregunta = Juego.ObtenerPregunta(idPregunta);
+        ViewBag.respuestas = Juego.ObtenerProximasRespuestas(idPregunta);
+
+       /* erificrs respyeat devuelve u boolenaon 
+        si es true--> cartelito de genial continuar
+        sino--> volver y en la view misma continuar*/
+        Juego.VerificarRespuesta(ididi);
+
+        ViewBag.idRespuestaRespondida = idRespuesta;
+
           return View("Respuesta");
        
     }   
