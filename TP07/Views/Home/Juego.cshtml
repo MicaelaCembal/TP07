@@ -29,7 +29,20 @@ del controller).-->
                            </div>
                             
                         }
-                        <!--a href='@Url.Action("Juego", "Home", new{IdPregunta=@ViewBag.Preguntas})'class="btn btn-primary_ botonderecho">Siguiente</a-->
+
+
+                        <div class="col -6">
+                        @if (@ViewBag.FueRespondida == true){
+                        if(resp.IdRespuesta == @ViewBag.RespuestaCorrecta){
+                           <p class="" style="background-color: green; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px"
+                        }else if(resp.IdRespuesta==@ViewBag.RespuestaIncorrecta){
+                            <p class="" style="background-color: red; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px" 
+                        }else{
+                             <p class="" style="background-color: #a58cce; text-align: center; text-decoration:none; color: white; border-radius: 15px; width: 96%; height: 175px; font.size: 38px; box-size: 50px"
+                        }
+                        }else{
+                           <a class="answers" href='@Url.Action("VerificarRespuesta", "Home", new {idRespuesta = @resp.IdRespuesta, idPregunta = ViewBag.Pregunta.IdPregunta})'> @resp.Contenido </a>
+                     //a href='@Url.Action("Juego", "Home", new{IdPregunta=@ViewBag.Preguntas})'class="btn btn-primary_ botonderecho">Siguiente</a
                               
       </div>
       </div>
