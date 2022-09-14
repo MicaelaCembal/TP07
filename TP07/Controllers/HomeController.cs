@@ -111,10 +111,13 @@ public class HomeController : Controller
         sino--> volver y en la view misma continuar*/
         
         ViewBag.IdRespuesta=idRespuesta;
+         
         if (Juego.VerificarRespuesta(idPregunta,idRespuesta))
         {
             ViewBag.Mensaje = "¡Muy bien! Correctoooo";
             ViewBag.Correcta=true;
+            
+            
             
         }
         else

@@ -540,10 +540,14 @@ button {
   }
 }
 
-.correcto{
-  background-color: green;
+.seleccionadacorrecto label{
+  background-color: green!important;
+  color:white;
+  border-color:  green!important;
 }
 
-.incorrecto{
-  background-color: red;
+.seleccionadaincorrecto label{
+  background-color: red!important;
+  color:white;
+  border-color:  red!important;
 }

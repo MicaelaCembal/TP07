@@ -132,12 +132,12 @@ public class Juego
      /*ObtenerProximaPregunta(): Retorna, de ser posible, una pregunta al azar de la
 lista de preguntas.
 */
-public static Pregunta ObtenerProximaPregunta(){
-var random = new Random();
-         
-         int pos = random.Next(_preguntas.Count);          
-         return _preguntas[pos];
-}
+        public static Pregunta ObtenerProximaPregunta(){
+        var random = new Random();
+                
+                int pos = random.Next(_preguntas.Count);          
+                return _preguntas[pos];
+        }
 
 public static List<Respuesta> ObtenerProximasRespuestas(int idPreguntaok){
     /*Retorna una lista con todas las
@@ -164,7 +164,13 @@ List<Respuesta> lista = new List<Respuesta>();
 
         foreach(Respuesta resp in _respuestas)
         {
-            
+            for(int i =0; i<_preguntas.Count(); i++)
+            {
+                if(_preguntas[i].IdPregunta ==idPregunta){
+                _preguntas.RemoveAt(i);
+                }
+            }
+
                 if (resp.IdPregunta==idPregunta)
                 {
                   
@@ -177,7 +183,7 @@ List<Respuesta> lista = new List<Respuesta>();
                 }
         }
         
-        //_preguntas.RemoveAt(idPregunta);
+        
 
         return false;
         
