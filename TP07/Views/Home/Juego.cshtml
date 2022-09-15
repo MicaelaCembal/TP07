@@ -11,6 +11,8 @@ del controller).-->
     ViewData["Title"] = "Home Page";
 }
         <div class="form_content">
+        <h1>@ViewBag.username</h1>
+         <h1>Puntaje Actual: @ViewBag.Puntajeok</h1>
                      <div class="question_title py-5 text-white">
                         <h1 class="text-center text-uppercase overflow-hidden rounded-pill">@ViewBag.Pregunta.Enunciado </h1>
                      </div>
@@ -26,7 +28,7 @@ del controller).-->
                               }  
                             
                             </div>
-                              <button type="submit" class="btn btn-primary_ botonderecho">¡enviar!</button>
+                              <button type="submit" class="btn btn-primary_ botonderecho">Enviar</button>
                            </form>
                         
                         </div>

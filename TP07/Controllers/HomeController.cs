@@ -52,9 +52,11 @@ public class HomeController : Controller
             en ViewBag y retorna la view Juego.*/
 
             Pregunta pregunta= Juego.ObtenerProximaPregunta();
-
+            ViewBag.username=Juego.UserNameView(); 
+            ViewBag.Puntajeok=Juego.PuntajeView();
             if(pregunta== null){
               return View("Fin");
+              
             }
             else{
                 ViewBag.Respuestas= Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);

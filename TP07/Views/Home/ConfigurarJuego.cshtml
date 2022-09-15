@@ -1,5 +1,6 @@
 @{
     ViewData["Title"] = "Home Page";
+    <div class="pb-3"> </div>
 }
 
 
@@ -12,38 +13,81 @@ Todos los campos deben ser required!
 Debe existir un botón Jugar que invoque al método Comenzar del controller.
 
 -->
+<!--div class="fondo"-->
 
-<h1>DIFICULTAD</h1>
   
 <form action='@Url.Action("Comenzar","Home")' method="GET" enctype="multipart/form-data">
+<center>
+<div class="container">
+<div class="row">
+<div class="col-6">
+<h1 class="configurartitulos">DIFICULTAD</h1>
+            
+            <div class="col-lg-4 mb-2">
+                <input type="radio"  id="Baja" value="1"  name="Dificultad" /> <label for="Baja" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Baja </label><br/> 
+            
+            </div>
 
-    <input type="radio"  id="Baja" value="1"  name="Dificultad"/> <label for="Baja"> Baja </label><br/>
+          
+            <div class="col-lg-4 mb-2">
+                <input type="radio"  id="Media" value="2" name="Dificultad"/> <label for="Media" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Media </label><br/> 
+            </div>
 
-    <input type="radio"  id="Media" value="2" name="Dificultad"/> <label for="Media"> Media </label><br/>
+          
+            <div class="col-lg-4 mb-2 ">
+            <input type="radio"  id="Alta" value="3" name="Dificultad"/> <label for="Alta" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Alta </label><br/> 
+            </div>
 
-    <input type="radio"  id="Alta" value="3" name="Dificultad"/> <label for="Alta"> Alta </label><br/>
+           
+            <div class="col-lg-4 mb-2">
+                <input type="radio"  id="Todas" value="-1"  name="Dificultad"/> <label for="¡Todas!" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> ¡Todas! </label><br/><br/>
+            </div>
+
+</div>
+
  
-    <input type="radio"  id="Todas" value="-1"  name="Dificultad"/> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
- 
+
+<div class="col-6">
+<h1 class="configurartitulos">CATEGORÍA</h1>
 
 
-<h1>CATEGORÍA</h1>
+
+ <div class="col-lg-4 mb-2">
+    <input type="radio" id="Madrijim" value="1" name="Categoria" /> <label for="Madrijim" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Madrijim </label><br/>
+</div>
+
+ 
+  <div class="col-lg-4 mb-2">
+    <input type="radio"  id="Majane" value="2" name="Categoria" /> <label for="Majane" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Majane </label><br/>
+</div>
+
+   
+  <div class="col-lg-4 mb-2">
+    <input type="radio" id="Dorjarock" value="3" name="Categoria" /> <label for="Dorjarock" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Dorjarock </label><br/>
+   </div>
 
 
-    <input type="radio" id="Madrijim" value="1" name="Categoria" /> <label for="Madrijim"> Madrijim </label><br/>
+
+  <div class="col-lg-4 mb-2">
+    <input type="radio" id="Comunidad " value="4 " name="Categoria"/> <label for="Comunidad" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Comunidad </label><br/>
+</div>
+
  
-    <input type="radio"  id="Majane" value="2" name="Categoria" /> <label for="Majane"> Majane </label><br/>
- 
-    <input type="radio" id="Dorjarock" value="3" name="Categoria" /> <label for="Dorjarock"> Dorjarock </label><br/>
- 
-    <input type="radio" id="Comunidad " value="4 " name="Categoria"/> <label for="Comunidad"> Comunidad </label><br/>
- 
-    <input type="radio" id="Todas" value="-1" name="Categoria" /> <label for="¡Todas!"> ¡Todas! </label><br/><br/>
-  
-  <h1>NOMBRE</h1>
+  <div class="col-lg-4 mb-2">
+    <input type="radio" id="Todas" value="-1" name="Categoria" /> <label for="¡Todas!" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> ¡Todas! </label><br/><br/>
+   </div>
+
+</div>
+ </div>
+ </div>
+</center>
+
+ <h1 class="configurartitulos">NOMBRE</h1>
   <input type="text" class="form-control" id="Nombre"  autocomplete= "off" name="username" required><br/>
  
 
 <button type="submit" class="btn btn-primary_ botonderecho">¡Comenzar a jugar!</button>
 
 </form>
+
+

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j9BZQQ5pqtjtHpLMf7XCueKP731qsWM+SAm2ErRebv4=",
+  "Hash": "verlyU5gk/l43QW2f64QN9VfgjxQi1lmffhLgSnzqk4=",
   "Source": "TP07",
   "BasePath": "_content/TP07",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\47297659\\TP07\\TP07\\wwwroot\\imagenes\\FONDODORJA.jpg",
+      "SourceId": "TP07",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\47297659\\TP07\\TP07\\wwwroot\\",
+      "BasePath": "_content/TP07",
+      "RelativePath": "imagenes/FONDODORJA.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\FONDODORJA.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\47297659\\TP07\\TP07\\wwwroot\\imagenes\\FONDODORJA2.jpg",
+      "SourceId": "TP07",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\47297659\\TP07\\TP07\\wwwroot\\",
+      "BasePath": "_content/TP07",
+      "RelativePath": "imagenes/FONDODORJA2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\FONDODORJA2.jpg"
     },
     {
       "Identity": "C:\\Users\\47297659\\TP07\\TP07\\wwwroot\\imagenes\\logo.png",

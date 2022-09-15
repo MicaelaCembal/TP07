@@ -12,17 +12,17 @@ En el menú deben estar el link a la Home y el logo del Mundial Qatar2022 -->
 <body class="fondo">
     <header> 
         <img class="logo" src="/imagenes/logo.png">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 colornavbar">
+            <div class="container colornavbar">
                 
-                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                 <button class="navbar-toggler colornavbar" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between colornavbar">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego">Jugar</a>
+                            <a class="nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego"> Jugar</a>
                         </li>
                     </ul>
                 </div>
@@ -30,7 +30,7 @@ En el menú deben estar el link a la Home y el logo del Mundial Qatar2022 -->
         </nav>
         
     </header>
- <div class="container">
+ <div class="container ">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

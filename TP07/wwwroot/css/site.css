@@ -7,13 +7,16 @@ html {
   font-size: 14px;
   
 }
+.colornavbar{
+  background-color: white !important;
+}
 a.navbar-brand {  
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 .fondo{
-  background-color: #fff;
+  background-color: #D9EDFF;;
 }
 @media (min-width: 768px) {
   html {
@@ -90,12 +93,14 @@ html {
 .footer {
   width: 100%;
   white-space: nowrap;
- 
+  position: absolute;
+  bottom: -13px;
+  line-height: 30px;
 }
 
 header{
   height:12%;
-  background-color: rgb(160, 156, 156);
+  background-color: rgb(255, 255, 255);
 /*font-family: monospace;*/
 display: flex!important;
 justify-content: space-around;
@@ -109,7 +114,7 @@ width:20%;
 list-style-type:none;
 float:right;
   display:inline-flex;
-background-color: rgb(160, 156, 156);  
+background-color: rgb(255, 255, 255);  
   
 }
 
@@ -321,6 +326,7 @@ body {
   font-style: normal;
   font-display: swap;
   font-family: "Poppins", sans-serif;
+  
 }
 
 a,
@@ -550,4 +556,22 @@ button {
   background-color: red!important;
   color:white;
   border-color:  red!important;
+}
+
+.color{
+  color: #FFFFFF;
+               /*3087D6*/
+  background-color:#335B86 !important;
+  border-color: #00274F!important;
+}
+
+.configurartitulos{
+  color: 335B86 !important;
+}
+
+.tamano{
+
+  padding:40px 110px;
+  font-size: 30px;
+
 }

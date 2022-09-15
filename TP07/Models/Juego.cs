@@ -93,7 +93,7 @@ public class Juego
     public static void InicializarJuego()
     {
           _username= "";
-           _puntajeActual=0;
+           _puntajeActual=500;
            _cantidadPreguntasCorrectas=0;
            _preguntas=null;
            _respuestas=null;
@@ -132,12 +132,12 @@ public class Juego
      /*ObtenerProximaPregunta(): Retorna, de ser posible, una pregunta al azar de la
 lista de preguntas.
 */
-        public static Pregunta ObtenerProximaPregunta(){
+    public static Pregunta ObtenerProximaPregunta(){
+        if(_preguntas.Count()==0)return null;
         var random = new Random();
-                
-                int pos = random.Next(_preguntas.Count);          
-                return _preguntas[pos];
-        }
+        int pos = random.Next(_preguntas.Count);          
+        return _preguntas[pos];
+    }
 
 public static List<Respuesta> ObtenerProximasRespuestas(int idPreguntaok){
     /*Retorna una lista con todas las
@@ -161,15 +161,14 @@ List<Respuesta> lista = new List<Respuesta>();
     puntos a _puntajeActual (la definen ustedes) y suma 1 respuesta correcta
     en _cantidadPreguntasCorrectas.
     2. Elimina la pregunta enviada por parámetro de la lista de preguntas*/
-
+        for(int i =0; i<_preguntas.Count(); i++) {
+            if(_preguntas[i].IdPregunta ==idPregunta){
+                _preguntas.RemoveAt(i);
+            }
+        }
         foreach(Respuesta resp in _respuestas)
         {
-            for(int i =0; i<_preguntas.Count(); i++)
-            {
-                if(_preguntas[i].IdPregunta ==idPregunta){
-                _preguntas.RemoveAt(i);
-                }
-            }
+           
 
                 if (resp.IdPregunta==idPregunta)
                 {
@@ -182,12 +181,21 @@ List<Respuesta> lista = new List<Respuesta>();
                     }
                 }
         }
-        
+          //_preguntas.RemoveAt(idPregunta);
         
 
         return false;
         
     }
+
+    public static string UserNameView(){
+
+        return _username; 
+    }
+    public static int PuntajeView(){
+
+        return _puntajeActual; 
+    } 
 }
 }
 
