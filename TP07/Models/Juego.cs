@@ -93,7 +93,7 @@ public class Juego
     public static void InicializarJuego()
     {
           _username= "";
-           _puntajeActual=500;
+           _puntajeActual=0;
            _cantidadPreguntasCorrectas=0;
            _preguntas=null;
            _respuestas=null;
