@@ -11,7 +11,8 @@ En el menú deben estar el link a la Home y el logo del Mundial Qatar2022 -->
 </head>
 <body class="fondo">
     <header> 
-        <img class="logo" src="/imagenes/logo.png">
+    
+        <img class="logo edicion" src="/imagenes/logo.png">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 colornavbar">
             <div class="container colornavbar">
                 
@@ -22,6 +23,10 @@ En el menú deben estar el link a la Home y el logo del Mundial Qatar2022 -->
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between colornavbar">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
+                         <a class="nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="Index"> Principal</a>
+                           </li>
+                          
+                          <li class="nav-item">
                             <a class="nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego"> Jugar</a>
                         </li>
                     </ul>
