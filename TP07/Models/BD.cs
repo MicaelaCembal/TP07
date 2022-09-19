@@ -27,7 +27,7 @@ namespace TP07.Models;
     public class BD {
 
  private static string _connectionString = 
-        @"Server=A-PHZ2-CIDI-055;
+        @"Server=MICAELA-CEMBAL\SQLEXPRESS;
         DataBase=TP07;Trusted_Connection=True;";
 //a. ObtenerCategorias(): Devuelve una lista con todas las categorías
     public static List<Categoria> ObtenerCategorias(){
