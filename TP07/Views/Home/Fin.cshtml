@@ -9,5 +9,25 @@ b. Puntaje final
 c. Un enlace para volver a jugar (Reinicia el juego invocando al método
 ConfigurarJuego del controller)-->
 
-<h1>@ViewBag.username</h1>
-<!--h1>@ViewBag.puntajeView</h1-->
+<div class="container">
+<div class="row">
+<div class="col-6">
+</div>
+<div class="col-6">
+</div>
+</div>
+<div class="row">
+<div class="col-sm">
+</div>
+<div class="col-sm">
+
+<h1 class="fin">Nombre: @ViewBag.username</h1>
+<h1 class="fin">Puntaje Actual: @ViewBag.Puntajeok</h1>
+<a class="btn btn-primary_ botonderecho" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego"> ¡Volver a jugar!</a>
+</div>
+
+<div class="col-sm">
+</div>
+
+</div>
+</div>
