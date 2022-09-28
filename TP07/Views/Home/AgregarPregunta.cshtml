@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Home Page";
+      <div class="pb-3"> </div>
+}
+
+ <center><h1 class="configurartitulos pb-1">AGREGAR PREGUNTA</h1></center>
+
+<form action='@Url.Action("GuardarPregunta","Home")' method="POST" enctype="multipart/form-data">
+ 
+  
+  <!--IdPregunta,IdCategoria, IdDificultad,Enunciado,Foto-->
+  <input type="hidden" class="form-control" id="IdPregunta" name="IdPregunta" value="@ViewBag.IdPregunta">
+
+<center>
+ <div class="form-group pb-4">
+<div class="container">
+<div class="row">
+
+
+<div class="col-6">
+            <h1 class="configurartitulos">DIFICULTAD</h1>
+                <div class="col-lg-4 mb-2">
+                            <input type="radio"  id="Baja" value="1"  name="IdDificultad" /> <label for="Baja" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Baja </label><br/> 
+                        
+                </div>
+
+                    
+            <div class="col-lg-4 mb-2">
+                    <input type="radio"  id="Media" value="2" name="IdDificultad"/> <label for="Media" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Media </label><br/> 
+                </div>
+
+                
+                <div class="col-lg-4 mb-2 ">
+                <input type="radio"  id="Alta" value="3" name="IdDificultad"/> <label for="Alta" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Alta </label><br/> 
+                </div>
+
+</div>
+
+<div class="col-6">
+        <h1 class="configurartitulos">CATEGORÍA</h1>
+
+        <div class="col-lg-4 mb-2">
+            <input type="radio" id="Madrijim" value="1" name="IdCategoria" /> <label for="Madrijim" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Madrijim </label><br/>
+        </div>
+
+        
+        <div class="col-lg-4 mb-2">
+            <input type="radio"  id="Majane" value="2" name="IdCategoria" /> <label for="Majane" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Majane </label><br/>
+        </div>
+
+        
+        <div class="col-lg-4 mb-2">
+            <input type="radio" id="Dorjarock" value="3" name="IdCategoria" /> <label for="Dorjarock" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Dorjarock </label><br/>
+        </div>
+
+
+
+        <div class="col-lg-4 mb-2">
+            <input type="radio" id="Comunidad " value="4 " name="IdCategoria"/> <label for="Comunidad" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Comunidad </label><br/>
+        </div>
+
+</div>
+
+
+
+ </div>
+ </div>
+</center>
+ <h1 class="configurartitulos">ENUNCIADO</h1>
+   <input type="text" class="form-control" id="Enunciado" placeholder="Enunciado"  autocomplete= "off" name="Enunciado" required>
+  <input type="hidden" class="form-control" id="Foto" name="Foto" value=NULL>
+
+<div class="pb-3">
+</div>
+<button type="submit" class="btn btn-primary_ ">Guardar Pregunta Nueva</button>
+
+ </div>
+</form>

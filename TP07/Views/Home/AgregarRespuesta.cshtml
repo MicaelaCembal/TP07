@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Home Page";
+      <div class="pb-3"> </div>
+}
+
+ <center><h1 class="configurartitulos pb-1">AGREGAR RESPUESTA</h1></center>
+
+<form action='@Url.Action("GuardarRespuesta","Home")' method="POST" enctype="multipart/form-data">
+ 
+  
+  <!--int idRespuesta,int idPregunta, int opcion, string contenido, bool correcta, string foto-->
+  <input type="hidden" class="form-control" id="IdPregunta" name="IdPregunta" value="@ViewBag.IdPregunta">
+
+ <h1 class="configurartitulos">OPCIÓN N°</h1>
+   <input type="int" class="form-control" id="Opcion" placeholder="Opcion"  autocomplete= "off" name="Esta es la opción número: " required>
+
+    <h1 class="configurartitulos">CONTENIDO</h1>
+   <input type="int" class="form-control" id="Contenido" placeholder="Contenido"  autocomplete= "off" name="Contenido de la respuesta: " required>
+
+<h1 class="configurartitulos">¿ES CORRECTA?</h1>
+                <div class="col-lg-4 mb-2">
+                            <input type="radio"  id="Correcta" value="1"  name="Correcta" /> <label for="Correcta" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> Si </label><br/> 
+                        
+                </div>
+
+                    
+            <div class="col-lg-4 mb-2">
+                    <input type="radio"  id="Incorrecta" value="0" name="Correcta"/> <label for="Incorrecta" class="step_1 bg-white overflow-hidden rounded-pill text-center color"> No </label><br/> 
+                </div>
+<input type="hidden" class="form-control" id="Foto" name="Foto" value=NULL>
+
+<button type="submit" class="btn btn-primary_ ">Guardar Respuesta Nueva</button>
+
+
+</form>

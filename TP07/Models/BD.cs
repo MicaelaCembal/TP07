@@ -27,7 +27,7 @@ namespace TP07.Models;
     public class BD {
 
  private static string _connectionString = 
-        @"Server=MICAELA-CEMBAL\SQLEXPRESS;
+        @"Server=A-PHZ2-CIDI-031;
         DataBase=TP07;Trusted_Connection=True;";
 //a. ObtenerCategorias(): Devuelve una lista con todas las categorías
     public static List<Categoria> ObtenerCategorias(){
@@ -106,9 +106,43 @@ public static Pregunta ObtenerUnaPregunta(int idPregunta)
             }
             return UnaPregunta;
 }
+
+public static void AgregarPregunta(Pregunta Preg){
+        string sql = "INSERT INTO Preguntas(IdCategoria, IdDificultad,Enunciado,Foto) VALUES (@pIdCategoria, @pIdDificultad,@pEnunciado,@pFoto)";
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pIdCategoria= Preg.IdCategoria, pIdDificultad=Preg.IdDificultad, pEnunciado=Preg.Enunciado, pFoto=Preg.Foto });
+        }
+    }
+
+
+
+     public static void EliminarPregunta(int id){
+        string sql = "DELETE FROM Preguntas WHERE IdPregunta = @pId";
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            db.Execute(sql, new { pId = id });
+        }
+        
+    }
+
+     public static List<Pregunta> ListarPregunta(){
+        List<Pregunta> lista = new List<Pregunta>();
+        string sql = "SELECT * FROM Preguntas";
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            lista = db.Query<Pregunta>(sql).ToList();
+        }
+        return lista;
+    }
+  public static void AgregarRespuesta(Respuesta Resp){
+        string sql = "INSERT INTO Respuestas  (IdPregunta,  Opcion,  Contenido,  Correcta,  Foto) VALUES (@pIdPregunta,  @pOpcion,  @pContenido,  @pCorrecta,  @pFoto)";
+        using(SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(sql, new { pIdPregunta=Resp.IdPregunta, pOpcion= Resp.Opcion, pContenido=Resp.Contenido, pCorrecta=Resp.Correcta, pFoto=Resp.Foto });
+        }
+    
        
 }
-
+}
 
 
 

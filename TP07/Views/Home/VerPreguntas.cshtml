@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Home Page";
+      <div class="pb-3"> </div>
+}
+
+<div class="cuerpo">
+            <div class="blanco pb-4">
+            <center><h1>PREGUNTAS</h1></center>
+            </div>
+        <div class="container pb-3">
+            <div class="row">
+        @foreach(Pregunta info in @ViewBag.ListaPregunta)
+        {
+        
+                    <div class="col-12">
+                    <div class="card cartas mb-2" ;>
+                            <div class="card-body">
+                                <h5 class="card-title bordo">@info.Enunciado</h5>
+                                    <a href='@Url.Action("EliminarPregunta", "Home", new{ IdPregunta=info.IdPregunta})'class="btn btn-danger">Eliminar</a>
+                                    <a href='@Url.Action("AgregarRespuesta", "Home", new{ IdPregunta=info.IdPregunta})'class="btn btn-secondary">Agregar Respuesta</a>
+                            </div>
+              
+                    </div>
+                    </div>
+        }
+
+
+            </div>
+
+          
+
+
+    </div>
+
+
+
+
+  </div>
+    
+
+
+
+

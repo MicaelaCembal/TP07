@@ -41,6 +41,17 @@ public class Pregunta
         }
 
     }
+     public int IdDificultad
+    {
+        get
+        {
+            return _idDificultad;
+        }
+        set{
+            _idDificultad = value;
+        }
+
+    }
 
 
      public string Foto

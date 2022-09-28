@@ -22,13 +22,21 @@ En el menú deben estar el link a la Home y el logo del Mundial Qatar2022 -->
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between colornavbar">
                     <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                            <a class="btn btn-primary nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego"> Jugar</a>
+                        </li>
+
                         <li class="nav-item">
                          <a class="nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="Index"> Principal</a>
                            </li>
                           
-                          <li class="nav-item">
-                            <a class="nav-link text-dark colornavbar" asp-area="" asp-controller="Home" asp-action="ConfigurarJuego"> Jugar</a>
+                          
+                       <li class="nav-item">
+                        <a href='@Url.Action("AgregarPregunta", "Home")'class="nav-link text-dark colornavbar">Agregar Pregunta</a>
                         </li>
+                        <li class="nav-item">
+                    <a href='@Url.Action("VerPreguntas", "Home")'class="nav-link text-dark colornavbar">Ver Preguntas</a>
+                          </li>
                     </ul>
                 </div>
             </div>

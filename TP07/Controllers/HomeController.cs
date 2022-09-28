@@ -134,5 +134,51 @@ public class HomeController : Controller
        
        
     }   
+
+    public IActionResult AgregarPregunta(int IdPregunta){
+       
+        ViewBag.IdPregunta = IdPregunta;
+        
+        return View("AgregarPregunta");
+    }
+
+    public IActionResult AgregarRespuesta(int IdPregunta){
+       
+        ViewBag.IdPregunta = IdPregunta;
+        
+        return View("AgregarRespuesta");
+    }
+
+    [HttpPost]
+   public IActionResult GuardarRespuesta(int idRespuesta,int idPregunta, int opcion, string contenido, bool correcta, string foto)
+    {    
+       Respuesta respuesta = new Respuesta(idRespuesta,idPregunta,opcion,contenido,correcta,foto);
+        BD.AgregarRespuesta(respuesta);
+         ViewBag.ListaPregunta = BD.ListarPregunta();
+         return View ("VerPreguntas");
+    }
+    
+    public IActionResult VerPreguntas(){
+       
+        ViewBag.ListaPregunta = BD.ListarPregunta();
+        
+        return View("VerPreguntas");
+    }
+   
+   public IActionResult EliminarPregunta(int IdPregunta)
+   {
+        BD.EliminarPregunta(IdPregunta);
+        return View ("ConfigurarJuego");
+    }
+
+  [HttpPost]
+   public IActionResult GuardarPregunta(int idPregunta,int idCategoria, int idDificultad, string enunciado, string foto)
+    {    
+       Pregunta pregunta = new Pregunta(idPregunta,idCategoria, idDificultad,enunciado,foto);
+        BD.AgregarPregunta(pregunta);
+         return View ("ConfigurarJuego");
+    }
+    
+
     
 }
